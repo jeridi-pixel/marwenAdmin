@@ -1,0 +1,40 @@
+<div class="container">
+
+    <ul class="tilesWrap">
+        <input class="form-control" type="text" name="search" [(ngModel)]="Categorie" autocomplete="off" placeholder=" Recherche">
+       
+        
+       
+        <li *ngFor="let espece of Espece | filter:Categorie; let i = index">
+            <h2>01</h2>
+            <h3>espèce animale {{i+1}}</h3>
+            <label>Categorie:</label>
+            <p>
+{{espece.categorie}}
+            </p>
+            <label>Description:</label>
+            <p>
+{{espece.description}} 
+            </p>
+            <label>Autorisation de chasse:</label>
+            <p>
+{{espece.isChassable}}
+            </p> 
+            <label>Manière de protection:</label>
+            <p>
+{{espece.maniereProt}}
+            </p>
+            <label>Lieu:</label>
+            <p>
+{{espece.lieu}}
+            </p>
+            <label>Période de reproduction:</label>
+            <p>
+{{espece.periodeReprod}}
+            </p>
+        </li>
+      
+    </ul>   
+
+  </div>
+  

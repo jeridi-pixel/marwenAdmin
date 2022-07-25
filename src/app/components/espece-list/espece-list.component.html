@@ -1,0 +1,49 @@
+<div class="container">
+  <!-- No data message -->
+  <p *ngIf="Espece.length <= 0" class="no-data text-center">
+    There is no espece added yet!
+  </p>
+
+  <!-- Espece list -->
+  <h1 class="display-2">Liste des espèces</h1>
+
+  <table class="table table-bordered" *ngIf="Espece.length > 0">
+    <thead class="table-success">
+      <tr>
+        <th scope="col">Categorie</th>
+        <th scope="col">Description</th>
+        <th scope="col">isChassable</th>
+        <th scope="col">maniereProt</th>
+        <th scope="col">methodeChasse</th>
+        <th scope="col">image</th>
+        <th scope="col">lieu</th>
+        <th scope="col">periodeReprod</th>
+        <th scope="col">isActive</th>
+
+        <th scope="col center">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let espece of Espece; let i = index">
+        <td>{{ espece.categorie }}</td>
+        <td>{{ espece.description }}</td>
+        <td>{{ espece.isChassable }}</td>
+        <td>{{ espece.maniereProt }}</td>
+        <td>{{ espece.methodeChasse }}</td>
+        <td>{{ espece.image }}</td>
+        <td>{{ espece.lieu }}</td>
+        <td>{{ espece.periodeReprod }}</td>
+        <td>{{ espece.isActive }}</td>
+
+        <td class="text-center edit-block">
+          <span class="edit" [routerLink]="['/edit-espece/', espece._id]">
+            <button type="button" class="btn btn-success btn-sm">Edit</button>
+          </span>
+          <span class="delete" (click)="removeEspece(espece, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
